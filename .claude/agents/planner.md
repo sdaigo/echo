@@ -24,6 +24,7 @@ model: opus
 
 - `docs/` 配下の設計ドキュメント（要求定義、機能設計、アーキテクチャ、プロジェクト構造）
 - 対象のステアリングファイル（`.steering/[日付]-[機能名]/`）
+- `.claude/skills/steering/templates/tasklist.md` - tasklist.md の出力フォーマットテンプレート
 - 既存コードの構造（`src/` 配下の主要ディレクトリ）
 
 ### 2. 要求分析
@@ -71,7 +72,7 @@ model: opus
 1. [リスク] - [対策]
 
 ### タスクリスト（tasklist.md形式）
-[フェーズ別のタスクリスト]
+`.claude/skills/steering/templates/tasklist.md` のフォーマットに従って出力する。
 ```
 
 ## When to Use

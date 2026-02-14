@@ -10,29 +10,11 @@ allowed-tools: Read, Write
 
 ## 前提ドキュメント
 
-### プロジェクトセットアップ時（`/setup` 経由）
-
-- `docs/product-requirements.md`（必須）
-- `docs/functional-design.md`（必須）
-
-### 機能開発時（`/feature-design` 経由）
-
 - `.steering/[日付]-[機能名]/requirements.md`（必須）
 - `.steering/[日付]-[機能名]/design.md`（必須）
 
 ## 出力先
 
-呼び出し元のコンテキストに応じて出力先を切り替える:
-
-### プロジェクトセットアップ時
-
-入力が `docs/` 配下 → 出力先:
-- `docs/prototypes/userflow.md`
-- `docs/prototypes/wireframe.excalidraw`
-
-### 機能開発時
-
-入力が `.steering/` 配下 → 出力先:
 - `.steering/[日付]-[機能名]/prototypes/userflow.md`
 - `.steering/[日付]-[機能名]/prototypes/wireframe.excalidraw`
 

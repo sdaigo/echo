@@ -118,6 +118,12 @@ Read('docs/development-guidelines.md')
 Read('docs/project-structure.md')
 ```
 
+UIコンポーネントの実装タスクに着手する際は、ワイヤーフレームも追加で読み込む:
+
+```text
+Read('.steering/[日付]-[機能名]/prototypes/wireframe.excalidraw')
+```
+
 全体のタスク構造を把握し、次に着手すべきタスクを特定する。
 設計とユーザーフローを確認し、実装の全体像を理解する。
 開発ガイドラインとプロジェクト構造を確認し、コーディング規約とファイル配置ルールを理解する。
