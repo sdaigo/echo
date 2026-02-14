@@ -1,94 +1,114 @@
 ---
-description: 初回セットアップ: 6つの永続ドキュメントを対話的に作成する
+description: 初回セットアップ: 永続ドキュメントを対話的に作成する
 ---
 
 # 初回プロジェクトセットアップ
 
-このコマンドは、プロジェクトの6つの永続ドキュメントを対話的に作成します。
+プロジェクトの永続ドキュメント（`docs/`）を対話的に作成する。
 
-## 実行方法
+## 前提
+
+- `.claude/rules/common/` に汎用ルール（コーディング規約、テスト、Git、セキュリティ）が配置済み
+- プロジェクト固有のガイドラインは `docs/development-guidelines.md` に記載し、`rules/common/` を拡張する形で構成する
+
+## 環境チェック
+
+以下のコマンドで必須ツールの存在を確認する。不足があればユーザーに通知し、インストールを案内する:
 
 ```bash
-claude
-> /setup-project
+bun --version    # Bun（パッケージマネージャ・ランタイム）
+jq --version     # jq（フック内のJSONパースに使用）
 ```
+
+- **Bun**: https://bun.sh (`curl -fsSL https://bun.sh/install | bash`)
+- **jq**: https://jqlang.github.io/jq/ (`brew install jq`)
+
+全ツールが揃っていることを確認してから次に進む。
 
 ## 実行前の確認
 
-`docs/ideas/` ディレクトリ内のファイルを確認します。
+`docs/proposals/` ディレクトリ内のファイルを確認する。
 
-```bash
-# 確認
-ls docs/ideas/
-
-# ファイルが存在する場合
-✅ docs/ideas/initial-requirements.md が見つかりました
-   この内容を元にPRDを作成します
-
-# ファイルが存在しない場合
-⚠️  docs/ideas/ にファイルがありません
-   対話形式でPRDを作成します
-```
+- ファイルが存在する場合: 内容を元にPRDを作成
+- ファイルが存在しない場合: 対話形式でPRDを作成
 
 ## 手順
 
 ### ステップ0: インプットの読み込み
 
-1. `docs/ideas/` 内のマークダウンファイルを全て読む
-2. 内容を理解し、PRD作成の参考にする
+1. `docs/proposals/` 内のマークダウンファイルを全て読む
+   - マークダウンファイルがあれば:
+     - 内容を理解し、PRD作成の参考にする
+     - 不明確な点があれば、ユーザーに確認を取る
+   - マークダウンファイルがなければ:
+     - ユーザと対話しながらアイデアを練る
+     - 決定した内容を `docs/proposals/requirements.md` に記録する
+2. ユーザーに確認を求め、**承認されるまで待機**
+3. 修正の要求があれば修正し、再度確認を求める
+4. **承認されるまで次のステップに進まない**
 
-### ステップ1: プロダクト要求定義書の作成
+### ステップ1: PRD（プロダクト要求定義書）
 
-**重要**: 足りない情報がある場合は、ユーザーにヒアリングを行うこと
-
-1. **prd-architectスキル**をロード
-2. `docs/ideas/`の内容を元に`docs/product-requirements.md`を作成
-3. 壁打ちで出たアイデアを具体化：
-   - 詳細なユーザーストーリー
-   - 受け入れ条件
-   - 非機能要件
-   - 成功指標
+1. **prd-architect** スキルをロード
+2. `docs/proposals/` の内容を元に `docs/product-requirements.md` を作成
+3. アイデアを具体化（ユーザーストーリー、受け入れ条件、非機能要件、成功指標）
 4. ユーザーに確認を求め、**承認されるまで待機**
 
+**以降のステップはPRDの内容を元に自動生成する。各ステップの完了後、ユーザーに内容を提示して次に進む。**
 
-**以降のステップはプロダクト要求定義書の内容を元にするため、自動的に作成する**
+### ステップ2: 機能設計書
 
-### ステップ2: 機能設計書の作成
+1. **functional-design** スキルをロード
+2. `docs/product-requirements.md` を読む
+3. テンプレートとガイドに従って `docs/functional-design.md` を作成
+4. 作成内容をユーザーに提示し、次のステップへ進む
 
-1. **functional-designスキル**をロード
-2. `docs/product-requirements.md`を読む
-3. スキルのテンプレートとガイドに従って`docs/functional-design.md`を作成
+### ステップ3: アーキテクチャ設計書
 
-### ステップ3: 用語集の作成
-
-1. **glossary-creationスキル**をロード
+1. **architecture-design** スキルをロード
 2. 既存のドキュメントを読む
-3. スキルのテンプレートに従って`docs/glossary.md`を作成
+3. テンプレートとガイドに従って `docs/architecture.md` を作成
+4. 作成内容をユーザーに提示し、次のステップへ進む
+
+### ステップ4: プロジェクト構造
+
+1. **project-structure** スキルをロード
+2. 既存のドキュメントを読む
+3. 要件と技術スタックに即したガイド（`guide.md`）を `.claude/skills/project-structure` に作成する
+4. テンプレートに従って `docs/project-structure.md` を作成
+5. 作成内容をユーザーに提示し、次のステップへ進む
+
+### ステップ5: 開発ガイドライン
+
+1. **development-guidelines** スキルをロード
+2. 既存のドキュメントと `.claude/rules/common/` の汎用ルールを読む
+3. テンプレートに従って `docs/development-guidelines.md` を作成
+   - **重要**: `rules/common/` に定義済みの汎用原則は重複させない
+   - `docs/development-guidelines.md` にはプロジェクト固有の設定のみを記載する
+   - 冒頭で `rules/common/` への参照を明記する
+4. 作成内容をユーザーに提示し、次のステップへ進む
+
+### ステップ6: 用語集
+
+1. **glossary-creation** スキルをロード
+2. 既存のドキュメントを読む
+3. テンプレートに従って `docs/glossary.md` を作成
 
 ## 完了条件
 
-- 6つの永続ドキュメントが全て作成されていること
-
-完了時のメッセージ:
+6つの永続ドキュメントが全て作成されていること:
 
 ```text
-「初回セットアップが完了しました!
-
-作成したドキュメント:
-✅ docs/product-requirements.md
-✅ docs/functional-design.md
-✅ docs/glossary.md
-
-これで開発を開始する準備が整いました。
-
-今後の使い方:
-- ドキュメントの編集: 普通に会話で依頼してください
-  例: 「PRDに新機能を追加して」「architecture.mdを見直して」
-
-- 機能の追加: /add-feature [機能名] を実行してください
-  例: /add-feature ユーザー認証
-
-- ドキュメントレビュー: /review-docs [パス] を実行してください
-  例: /review-docs docs/product-requirements.md
-」
+docs/product-requirements.md
+docs/functional-design.md
+docs/architecture.md
+docs/project-structure.md
+docs/development-guidelines.md
+docs/glossary.md
 ```
+
+完了後、以下を案内:
+
+- `rules/common/` の汎用ルールがベースとして適用される
+- プロジェクト固有の技術スタックに応じて `.claude/skills/` にスキルを追加できる
+- `/feature-design` で個別機能の作業計画を開始できる
