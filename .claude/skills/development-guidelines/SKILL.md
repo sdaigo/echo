@@ -1,6 +1,7 @@
 ---
 name: development-guidelines
 description: チーム全体で統一された開発プロセスとコーディング規約を確立するための包括的なガイドとテンプレート。開発ガイドライン作成時、コード実装時に使用する。
+user-invocable: false
 allowed-tools: Read, Write, Edit
 ---
 

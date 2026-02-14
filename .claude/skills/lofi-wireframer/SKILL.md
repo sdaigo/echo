@@ -1,6 +1,7 @@
 ---
 name: lofi-wireframer
 description: 要求仕様から低忠実度ワイヤーフレームと画面遷移図を生成する。
+user-invocable: false
 allowed-tools: Read, Write
 ---
 

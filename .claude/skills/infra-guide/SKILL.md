@@ -1,6 +1,7 @@
 ---
 name: infra-guide
 description: デプロイ先の選定・インフラ構成の設計ガイド。プロジェクト初期のインフラ設計や、デプロイ先の変更時に使用する。
+user-invocable: false
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep, WebSearch
 ---
 

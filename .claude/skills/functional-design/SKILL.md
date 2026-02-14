@@ -1,6 +1,7 @@
 ---
 name: functional-design
 description: 機能設計書を作成するための詳細ガイドとテンプレート。機能設計書作成時にのみ使用。
+user-invocable: false
 allowed-tools: Read, Write
 ---
 

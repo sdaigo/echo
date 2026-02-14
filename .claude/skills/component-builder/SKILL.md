@@ -1,6 +1,7 @@
 ---
 name: component-builder
 description: shadcn/uiベースのReactコンポーネント生成。WCAG 2.1 AA準拠のアクセシブルなUIコンポーネントを作成する。
+user-invocable: false
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 

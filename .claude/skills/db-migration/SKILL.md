@@ -1,6 +1,7 @@
 ---
 name: db-migration
 description: Drizzle ORMスキーマ変更・マイグレーション管理を行う。DBスキーマ作成・変更時に使用する。
+user-invocable: false
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
