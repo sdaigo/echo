@@ -1,0 +1,50 @@
+{
+	"name": "echo",
+	"private": true,
+	"sideEffects": false,
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"start": "node .output/server/index.mjs",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"test:e2e": "playwright test",
+		"check": "biome check --write .",
+		"typecheck": "tsc --noEmit",
+		"db:migrate": "supabase db push",
+		"db:reset": "supabase db reset",
+		"db:types": "supabase gen types typescript --local > src/types/database.ts"
+	},
+	"dependencies": {
+		"@supabase/ssr": "0.6.1",
+		"@supabase/supabase-js": "2.49.8",
+		"@tanstack/react-query": "5.90.21",
+		"@tanstack/react-query-devtools": "5.91.3",
+		"@tanstack/react-router": "1.159.10",
+		"@tanstack/react-router-devtools": "1.159.10",
+		"@tanstack/react-start": "1.159.13",
+		"class-variance-authority": "0.7.1",
+		"clsx": "2.1.1",
+		"radix-ui": "1.4.3",
+		"react": "19.2.4",
+		"react-dom": "19.2.4",
+		"tailwind-merge": "2.6.0",
+		"zod": "3.24.2"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@playwright/test": "1.52.0",
+		"@tailwindcss/vite": "4.1.18",
+		"@types/node": "22.5.4",
+		"@types/react": "19.0.8",
+		"@types/react-dom": "19.0.3",
+		"@vitejs/plugin-react": "4.6.0",
+		"nitro": "3.0.1-alpha.2",
+		"tailwindcss": "4.1.18",
+		"typescript": "5.7.2",
+		"vite": "7.3.1",
+		"vite-tsconfig-paths": "5.1.4",
+		"vitest": "3.2.2"
+	}
+}

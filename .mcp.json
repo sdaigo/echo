@@ -1,24 +1,24 @@
 {
-  "mcpServers": {
-    "github": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"],
-      "envFile": "./.env"
-    },
-    "bun": {
-      "command": "bunx",
-      "args": ["-y", "mcp-bun@latest"],
-      "env": {
-        "DISABLE_NOTIFICATIONS": "true"
-      }
-    },
-    "memory": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-memory"]
-    },
-    "sequential-thinking": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
-    }
-  }
+	"mcpServers": {
+		"github": {
+			"command": "npx",
+			"args": ["-y", "@modelcontextprotocol/server-github"],
+			"envFile": "./.env"
+		},
+		"bun": {
+			"command": "bunx",
+			"args": ["-y", "mcp-bun@latest"],
+			"env": {
+				"DISABLE_NOTIFICATIONS": "true"
+			}
+		},
+		"memory": {
+			"command": "npx",
+			"args": ["-y", "@modelcontextprotocol/server-memory"]
+		},
+		"sequential-thinking": {
+			"command": "npx",
+			"args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+		}
+	}
 }
