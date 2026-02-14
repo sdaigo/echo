@@ -1,6 +1,7 @@
 ---
 name: ci-cd
 description: GitHub Actions CI/CDワークフローの生成・管理。PR検証パイプライン、デプロイパイプラインの構築時に使用する。
+user-invocable: false
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 

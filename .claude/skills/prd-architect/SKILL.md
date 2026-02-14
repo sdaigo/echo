@@ -1,6 +1,7 @@
 ---
 name: prd-architect
 description: プロダクト要求定義書(PRD)を、リサーチ結果とテンプレートに基づいて精密に作成するスキル。PRD作成時にのみ使用する。
+user-invocable: false
 allowed-tools: Read, Write
 ---
 

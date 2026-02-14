@@ -1,6 +1,7 @@
 ---
 name: api-route-builder
 description: Next.js Route Handler + zodバリデーション + 認証ミドルウェアのAPIルート生成。API作成時に使用する。
+user-invocable: false
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 

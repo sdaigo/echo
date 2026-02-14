@@ -1,6 +1,7 @@
 ---
 name: project-structure
 description: プロジェクトのファイル構造を定義するためのスキル。プロジェクト構造定義時にのみ使用。
+user-invocable: false
 allowed-tools: Read, Write
 ---
 
