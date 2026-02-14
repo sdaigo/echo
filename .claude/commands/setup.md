@@ -111,4 +111,5 @@ docs/glossary.md
 
 - `rules/common/` の汎用ルールがベースとして適用される
 - プロジェクト固有の技術スタックに応じて `.claude/skills/` にスキルを追加できる
+- `/setup-infra` でインフラ構成と CI/CD パイプラインを構築できる
 - `/feature-design` で個別機能の作業計画を開始できる

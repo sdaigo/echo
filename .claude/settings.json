@@ -13,7 +13,9 @@
       "Skill(steering)",
       "Skill(db-migration)",
       "Skill(component-builder)",
-      "Skill(api-route-builder)"
+      "Skill(api-route-builder)",
+      "Skill(ci-cd)",
+      "Skill(infra-guide)"
     ],
     "deny": [],
     "ask": []
