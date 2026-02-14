@@ -1,22 +1,22 @@
 {
-	"mcpServers": {
-		"github": {
-			"command": "npx",
-			"args": ["-y", "@modelcontextprotocol/server-github"],
-			"env": {
-				"GITHUB_ACCESS_TOKEN": "${GITHUB_ACCESS_TOKEN}"
-			},
-			"description": "GitHub operations - PRs, issues, repos"
-		},
-		"memory": {
-			"command": "npx",
-			"args": ["-y", "@modelcontextprotocol/server-memory"],
-			"description": "Persistent memory across sessions"
-		},
-		"sequential-thinking": {
-			"command": "npx",
-			"args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
-			"description": "Chain-of-thought reasoning"
-		}
-	}
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_ACCESS_TOKEN": "${GITHUB_ACCESS_TOKEN}"
+      },
+      "description": "GitHub operations - PRs, issues, repos"
+    },
+    "memory": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"],
+      "description": "Persistent memory across sessions"
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
+      "description": "Chain-of-thought reasoning"
+    }
+  }
 }

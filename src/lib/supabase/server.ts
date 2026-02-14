@@ -5,7 +5,7 @@ import type { Database } from "@/types/database"
 // - Server Functions 内で Cookie からセッションを復元
 // - getWebRequest() からリクエストヘッダーを取得
 export function getServerSupabase(): never {
-	throw new Error("Not implemented. Will be implemented in F1 (OAuth auth).")
+  throw new Error("Not implemented. Will be implemented in F1 (OAuth auth).")
 }
 
 export type { Database }
