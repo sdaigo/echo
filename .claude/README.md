@@ -34,7 +34,7 @@
 
 | Agent | Model | 自動起動条件 |
 |:---|:---|:---|
-| planner | opus | 複雑な機能要求を受けた時 |
+| planner | opus | `/feature-design` 内部で tasklist.md 生成時 |
 | ux-reviewer | sonnet | design.md 作成直後 |
 | code-reviewer | sonnet | コード変更直後 |
 | security-reviewer | sonnet | コード変更直後（code-reviewer と並行） |
@@ -67,7 +67,6 @@
 | `/setup-infra` | インフラ構成設計 + CI/CD パイプライン生成 |
 | `/feature-design` | 機能設計（.steering/ 生成 + UX レビュー） |
 | `/feature-implement` | 承認済み設計に基づく実装開始 |
-| `/plan` | planner エージェント起動 |
 | `/checkpoint` | 作業状態の記録 |
 | `/review-code` | code-reviewer + security-reviewer 並行実行 |
 | `/run-tests` | test-runner 起動 |

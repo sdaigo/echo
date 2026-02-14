@@ -67,15 +67,6 @@ allowed-tools: Read, Write, Edit, Bash, Glob, Grep, Task
 
 **重要**: ファイルを作成したらユーザーにレビューを依頼すること。ユーザーから明示的に承認がない限り次のステップには進まないこと。
 
-#### 4. tasklist.mdの詳細化
-
-requirements.mdとdesign.mdに基づいて、tasklist.mdを詳細化:
-
-- 各フェーズのタスクを具体的に記述
-- サブタスクも明確に
-- 実装の順序を明記
-- テスト実行タイミングを各フェーズに含める
-
 ---
 
 ## 実装モード
@@ -121,11 +112,14 @@ tasklist.mdに記載された全タスクが`[x]`になるまで作業を継続�
 
 ```text
 Read('.steering/[日付]-[機能名]/tasklist.md')
+Read('.steering/[日付]-[機能名]/design.md')
+Read('.steering/[日付]-[機能名]/prototypes/userflow.md')
 Read('docs/development-guidelines.md')
 Read('docs/project-structure.md')
 ```
 
 全体のタスク構造を把握し、次に着手すべきタスクを特定する。
+設計とユーザーフローを確認し、実装の全体像を理解する。
 開発ガイドラインとプロジェクト構造を確認し、コーディング規約とファイル配置ルールを理解する。
 
 #### ステップ2: TaskCreateでタスク管理開始
@@ -145,29 +139,20 @@ TaskCreate({ subject: "タスク名", description: "詳細", activeForm: "タス
 
 tasklist.mdを読み、次の未完了タスク（`[ ]`）を特定する。
 
-**3-2. タスク開始をtasklist.mdに記録（必須）**
-
-Editツールを使って、tasklist.mdの該当行を更新:
-
-```text
-old_string: "- [ ] StorageServiceを実装"
-new_string: "- [x] StorageServiceを実装"
-```
-
-Editツールを実行した直後に、更新が成功したことを確認する。
-
-**3-3. TaskUpdateでもステータス更新**
+**3-2. TaskUpdateでステータス更新**
 
 ```text
 TaskUpdate({ taskId: "対象ID", status: "in_progress" })
 ```
 
-**3-4. 実装を実行**
+注意: この時点では tasklist.md は `[ ]` のまま。`[x]` への更新はタスク完了時（ステップ3-7）に行う。
+
+**3-3. 実装を実行**
 
 `docs/development-guidelines.md` のコーディング規約に従って実装する。
 `docs/project-structure.md` のファイル配置ルールに従ってファイルを作成する。
 
-**3-5. テストを実行**
+**3-4. テストを実行**
 
 実装完了後、関連するテストを実行する:
 
@@ -184,7 +169,7 @@ bunx biome check [対象パス]
 
 テストが失敗した場合は修正してから次に進む。
 
-**3-6. PROACTIVE エージェント起動**
+**3-5. PROACTIVE エージェント起動**
 
 `.claude/rules/common/agents.md` の PROACTIVE 条件に従い、変更内容に応じてエージェントを自動起動する:
 
@@ -194,18 +179,24 @@ bunx biome check [対象パス]
 
 エージェントからの指摘があれば修正してからタスク完了に進む。
 
-**3-7. タスク完了をtasklist.mdに記録（必須）**
+**3-6. タスク完了をtasklist.mdに記録（必須）**
 
-実装・テスト完了後、Editツールでtasklist.mdを更新して完了を記録する。
+実装・テスト完了後、Editツールでtasklist.mdを更新して完了を記録:
+
+```text
+old_string: "- [ ] StorageServiceを実装"
+new_string: "- [x] StorageServiceを実装"
+```
+
 サブタスクがある場合はサブタスクも個別に更新する。
 
-**3-8. TaskUpdateでもステータス更新**
+**3-7. TaskUpdateでもステータス更新**
 
 ```text
 TaskUpdate({ taskId: "対象ID", status: "completed" })
 ```
 
-**3-9. 次のタスクへ**
+**3-8. 次のタスクへ**
 
 ステップ3-1に戻る。
 

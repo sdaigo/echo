@@ -24,8 +24,10 @@ model: sonnet
 
 - `docs/product-requirements.md` - ユーザーストーリー、ペルソナ
 - `docs/functional-design.md` - 画面一覧、画面遷移
-- 対象の `.steering/*/design.md` - 今回の設計内容
 - 対象の `.steering/*/requirements.md` - 今回の要件
+- 対象の `.steering/*/design.md` - 今回の設計内容
+- 対象の `.steering/*/prototypes/userflow.md` - ユーザーフロー図
+- 対象の `.steering/*/prototypes/wireframe.excalidraw` - ワイヤーフレーム
 
 ### 2. ユーザーフロー検証
 

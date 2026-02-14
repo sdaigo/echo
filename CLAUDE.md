@@ -98,6 +98,8 @@ docs/                   永続ドキュメント（プロジェクト全体の�
 
 ## プロジェクト固有の設定
 
+以下のファイルは `/setup` コマンドで対話的に生成される。生成後はプロジェクト固有のルールとして参照される。
+
 - コーディング規約: `docs/development-guidelines.md`
 - ファイル配置ルール: `docs/project-structure.md`
 - 用語集: `docs/glossary.md`

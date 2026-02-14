@@ -12,7 +12,8 @@ description: 承認済みの設計に基づき、tasklist.mdに従って実装�
 - `.steering/[日付]-[機能名]/` に以下が存在すること:
   - `requirements.md` - 承認済みの要件
   - `design.md` - UXレビュー反映済みの設計
-  - `tasklist.md` - 詳細化されたタスクリスト
+  - `tasklist.md` - planner が生成した詳細タスクリスト
+  - `prototypes/` - ワイヤーフレームとユーザーフロー（UI実装の参考）
 
 ## ステップ1: 設計の読み込みと確認
 
@@ -34,7 +35,17 @@ steeringスキルの実装モードに従い:
 ## ステップ3: フェーズ完了時
 
 各フェーズ完了時:
-1. `test-runner --full` でテスト実行
+1. test-runner エージェントを起動してテスト実行:
+   ```
+   Task({
+     subagent_type: "test-runner",
+     description: "test-runner: フェーズ完了テスト",
+     prompt: `
+       .claude/agents/test-runner.md を読み込み、フルテストを実行してください。
+       モード: --full
+     `
+   })
+   ```
 2. テスト失敗時はステップ2に戻り修正する。全テスト通過するまで次に進まない
 3. tasklist.md の進捗をユーザーに報告
 4. 次のフェーズへの承認を得る
@@ -42,6 +53,6 @@ steeringスキルの実装モードに従い:
 ## ステップ4: 全タスク完了
 
 1. tasklist.md の全タスクが `[x]` であることを確認
-2. `test-runner --full` で最終テスト
+2. test-runner エージェントを起動して最終テスト（上記と同じパターン）
 3. `Skill('steering', args: '振り返り')` を実行し、振り返りを記録
 4. ユーザーに完了を報告

@@ -8,7 +8,7 @@
 
 | Agent | Model | Purpose | When to Use |
 |:---|:---|:---|:---|
-| planner | opus | 実装計画・タスク分解 | 複雑な機能要求、リファクタリング |
+| planner | opus | 実装計画・タスク分解 | `/feature-design` 内部で tasklist.md 生成時 |
 | ux-reviewer | sonnet | UXレビュー・ユーザビリティ評価 | 機能設計時、UIフロー設計時 |
 | code-reviewer | sonnet | コード品質・規約準拠 | コード変更後 |
 | security-reviewer | sonnet | セキュリティ脆弱性検出 | 認証/API/入力処理コード変更後 |
@@ -36,7 +36,7 @@
 4. **DBスキーマを変更した直後** → `db-reviewer` を起動
 5. **フェーズ完了時** → `test-runner` を `--full` モードで起動
 
-**注意**: `planner` はPROACTIVEではなく、ユーザーが `/plan` コマンドで明示的に起動する。
+**注意**: `planner` はPROACTIVEではなく、`/feature-design` 内部で tasklist.md 生成時にのみ使用される。ユーザーが直接呼び出すことはない。
 
 ## Agent Spawning Pattern
 
@@ -101,11 +101,12 @@ code-reviewer を待ってから security-reviewer を起動
 ### 新機能実装フロー
 
 ```
-planner → [設計] → ux-reviewer
-                  → [実装]
-                  → code-reviewer + security-reviewer (並行)
-                  → a11y-auditor (UI変更あれば)
-                  → test-runner
+/feature-design
+  steering(計画) → planner(tasklist生成) → ux-reviewer
+/feature-implement
+  [実装] → code-reviewer + security-reviewer (並行)
+         → a11y-auditor (UI変更あれば)
+         → test-runner
 ```
 
 ### DBスキーマ変更フロー

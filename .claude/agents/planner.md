@@ -1,6 +1,6 @@
 ---
 name: planner
-description: 実装計画・タスク分解の専門家。複雑な機能要求やリファクタリング時に PROACTIVELY に使用する。
+description: 実装計画・タスク分解の専門家。/feature-design 内部で tasklist.md 生成時に使用される。直接呼び出しはしない。
 tools: ["Read", "Glob", "Grep"]
 model: opus
 ---

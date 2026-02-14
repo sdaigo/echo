@@ -29,7 +29,7 @@ model: sonnet
 
 ### 2. コーディング規約チェック
 
-`.claude/rules/coding-conventions.md` に基づき:
+`.claude/rules/common/coding-style.md` に基づき:
 
 - 命名規則の準拠
 - 関数サイズが目安内か
