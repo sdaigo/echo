@@ -74,6 +74,7 @@ Task({
     入力:
     - .steering/[日付]-[機能名]/requirements.md
     - .steering/[日付]-[機能名]/design.md
+    - .steering/[日付]-[機能名]/prototypes/userflow.md
 
     出力:
     - .steering/[日付]-[機能名]/tasklist.md

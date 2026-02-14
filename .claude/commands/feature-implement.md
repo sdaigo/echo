@@ -38,7 +38,8 @@ steeringスキルの実装モードに従い:
 1. test-runner エージェントを起動してテスト実行:
    ```
    Task({
-     subagent_type: "test-runner",
+     subagent_type: "general-purpose",
+     model: "haiku",
      description: "test-runner: フェーズ完了テスト",
      prompt: `
        .claude/agents/test-runner.md を読み込み、フルテストを実行してください。

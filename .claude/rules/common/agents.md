@@ -102,7 +102,7 @@ code-reviewer を待ってから security-reviewer を起動
 
 ```
 /feature-design
-  steering(計画) → planner(tasklist生成) → ux-reviewer
+  steering(計画) → lofi-wireframer → ux-reviewer → planner(tasklist生成)
 /feature-implement
   [実装] → code-reviewer + security-reviewer (並行)
          → a11y-auditor (UI変更あれば)
